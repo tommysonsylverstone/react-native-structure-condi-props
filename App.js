@@ -1,9 +1,11 @@
 import { StyleSheet, View } from 'react-native';
 import Integer from './integer';
+import Login from './login';
 export default function App() {
   return (
     <View style={styles.container}>
       <Integer />
+      <Login />
     </View>
   );
 }
