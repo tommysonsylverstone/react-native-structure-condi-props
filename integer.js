@@ -20,7 +20,8 @@ export default class Integer extends React.Component {
             let aString = a.toString();
             let total = 0;
             for (let i = 0; i < aString.length; i++) {
-                total += aString[i]
+                total += parseInt(aString[i])
+                console.log(total)
             }
             if (total % 3 === 0) console.log('ok');
         }
