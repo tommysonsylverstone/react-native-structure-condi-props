@@ -15,8 +15,15 @@ export default class Integer extends React.Component {
 
     handleSubmit(a) {
         if (a % 2 === 0)
-            if (a.toString().length === 3 && a % 3 === 0)
-                alert(a);
+            alert(a);
+        if (a.toString().length === 3) {
+            let aString = a.toString();
+            let total = 0;
+            for (let i = 0; i < aString.length; i++) {
+                total += aString[i]
+            }
+            if (total % 3 === 0) console.log('ok');
+        }
     }
 
     render() {
