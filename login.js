@@ -7,44 +7,48 @@ export default class Login extends React.Component {
         super(props);
         this.state = {
             username: '',
-            pwd: ''
+            pwd: '',
+            loginU: '',
+            loginP: ''
         }
     }
 
     handleUsername = (username) => {
-        this.setState({username: username})
+        this.setState({ username: username });
     }
 
     handlePassword = (pwd) => {
-        this.setState({pwd: pwd})
+        this.setState({ pwd: pwd });
     }
 
     handleSubmit = (username, pwd) => {
-        alert(username + " " + pwd)
-    }  
+        this.setState({loginU: username, loginP: pwd});
+    }
 
     render() {
         return (
-            <View>
-                <TextInput style={styles.input}
-                    underlineColorAndroid="transparent"
-                    placeholder="Email"
-                    placeholderTextColor="#9a73ef"
-                    autoCapitalize="none"
-                    onChangeText={this.handleUsername} />
-                <TextInput style={styles.input}
-                    underlineColorAndroid="transparent"
-                    placeholder="Password"
-                    placeholderTextColor="#9a73ef"
-                    autoCapitalize="none"
-                    secureTextEntry={true}
-                    onChangeText={this.handlePassword} />
-                <TouchableOpacity style={styles.submitButton}
-                    onPress={() => this.handleSubmit(this.state.username, this.state.pwd)}>
-                    <Text style={styles.submitButtonText}> Valider </Text>
-                </TouchableOpacity>
-                <Profile name={this.state.username} />
-            </View>
+            <>
+                <View>
+                    <TextInput style={styles.input}
+                        underlineColorAndroid="transparent"
+                        placeholder="Username"
+                        placeholderTextColor="#9a73ef"
+                        autoCapitalize="none"
+                        onChangeText={this.handleUsername} />
+                    <TextInput style={styles.input}
+                        underlineColorAndroid="transparent"
+                        placeholder="Password"
+                        placeholderTextColor="#9a73ef"
+                        autoCapitalize="none"
+                        secureTextEntry={true}
+                        onChangeText={this.handlePassword} />
+                    <TouchableOpacity style={styles.submitButton}
+                        onPress={() => this.handleSubmit(this.state.username, this.state.pwd)}>
+                        <Text style={styles.submitButtonText}> Valider </Text>
+                    </TouchableOpacity>
+                </View>
+                <Profile name={this.state.loginU} pwd={this.state.loginP} />
+            </>
         )
     }
 }

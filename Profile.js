@@ -7,7 +7,13 @@ export default class Profile extends React.Component {
 
     render() {
         return (
-            <Text>Bienvenue {this.props.name ? this.props.name : "Anonyme"}</Text>
+            <>
+                <Text>Bienvenue</Text>
+                {this.props.pwd === "admin"
+                    ? <Text>Bienvenue {this.props.name}</Text>
+                    : <Text>Mauvais mot de passe</Text>}
+
+            </>
         )
     }
 } 
